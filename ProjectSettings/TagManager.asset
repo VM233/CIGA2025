@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Block
+  - Entity
+  - Item Drop
+  - Player
+  - Item Drop Trigger
   - 
   - 
   - 
