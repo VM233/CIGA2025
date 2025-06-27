@@ -1,37 +1,66 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using VMFramework.Core;
 using VMFramework.OdinExtensions;
 
 namespace RoomPuzzle
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IStageElementProvider
     {
         [IsNotNullOrEmpty]
         public string moveInputName;
 
         [MinValue(0)]
-        public float moveSpeed = 5f;
+        public float defaultMoveVelocity = 10f;
+
+        [MinValue(0)]
+        public float moveDuration = 0.4f;
+
+        public float MoveVelocity { get; set; }
+
+        public IStageElement StageElement { get; protected set; }
 
         protected InputAction moveAction;
-        protected Rigidbody2D rb;
 
         protected virtual void Awake()
         {
+            StageElement = GetComponent<IStageElement>();
+
             moveAction = InputSystem.actions.FindAction(moveInputName);
-            rb = GetComponent<Rigidbody2D>();
+            moveAction.performed += OnMove;
+
+            MoveVelocity = defaultMoveVelocity;
         }
 
-        protected virtual void Start()
+        protected virtual void OnMove(InputAction.CallbackContext context)
         {
+            if (StageElement.Stage == null)
+            {
+                return;
+            }
 
-        }
+            if (StageElement.IsMoving())
+            {
+                return;
+            }
 
-        protected virtual void Update()
-        {
-            var moveValue = moveAction.ReadValue<Vector2>();
-            var moveVector = moveValue.normalized * moveSpeed;
-            rb.linearVelocity = moveVector;
+            var moveValue = context.ReadValue<Vector2>();
+
+            if (moveValue.x != 0 && moveValue.y != 0)
+            {
+                return;
+            }
+
+            var moveDirection = Vector2Int.zero;
+
+            moveDirection.x = moveValue.x.Sign();
+            moveDirection.y = moveValue.y.Sign();
+
+            StageElement.Stage.Move(StageElement, moveDirection, new MoveHint()
+            {
+                duration = moveDuration,
+            });
         }
     }
 }
