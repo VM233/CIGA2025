@@ -16,7 +16,8 @@ namespace RoomPuzzle
             stageElement.OnCheckEnterable += OnCheckEnterable;
         }
 
-        protected virtual void OnCheckEnterable(IStageElement element, IStageElement other, ref bool canEnter)
+        protected virtual void OnCheckEnterable(IStageElement element, IStageElement other, MoveHint hint,
+            ref bool canEnter)
         {
             if (blocked)
             {

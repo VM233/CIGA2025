@@ -9,7 +9,27 @@ namespace RoomPuzzle
         protected virtual void Awake()
         {
             stageElement = GetComponent<IStageElement>();
+            stageElement.OnCheckEnterable += OnCheckEnterable;
+            stageElement.OnCheckInteractable += OnCheckInteractable;
             stageElement.OnInteract += OnInteract;
+        }
+
+        protected virtual void OnCheckEnterable(IStageElement element, IStageElement other, MoveHint hint,
+            ref bool canEnter)
+        {
+            if (stageElement.Stage.CanMoveTo(stageElement, hint, out var shouldStop) == false)
+            {
+                canEnter = false;
+            }
+        }
+
+        protected virtual void OnCheckInteractable(IStageElement element, IStageElement other, InteractHint hint,
+            ref bool canInteract)
+        {
+            if (stageElement.Stage.CanMoveTo(stageElement, hint.moveHint, out var shouldStop) == false)
+            {
+                canInteract = false;
+            }
         }
 
         protected virtual void OnInteract(IStageElement element, IStageElement other, InteractHint hint)

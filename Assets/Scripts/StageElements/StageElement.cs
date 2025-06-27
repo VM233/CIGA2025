@@ -21,7 +21,7 @@ namespace RoomPuzzle
         public bool CanEnter(IStageElement other, MoveHint hint)
         {
             bool canEnter = true;
-            OnCheckEnterable?.Invoke(this, other, ref canEnter);
+            OnCheckEnterable?.Invoke(this, other, hint, ref canEnter);
             return canEnter;
         }
 

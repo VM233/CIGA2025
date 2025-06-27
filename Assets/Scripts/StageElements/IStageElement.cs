@@ -11,7 +11,8 @@ namespace RoomPuzzle
 
         public delegate void MovingCheckableHandler(IStageElement element, ref bool isMoving);
 
-        public delegate void EnterableCheckHandler(IStageElement element, IStageElement other, ref bool canEnter);
+        public delegate void EnterableCheckHandler(IStageElement element, IStageElement other, MoveHint hint,
+            ref bool canEnter);
 
         public delegate void InteractHandler(IStageElement element, IStageElement other, InteractHint hint);
 
@@ -35,7 +36,7 @@ namespace RoomPuzzle
         public void Move(IReadOnlyList<IStageElement> others, Vector2Int previous, Vector2Int current, MoveHint hint);
 
         public bool CanInteract(IStageElement from, InteractHint hint);
-        
+
         public void Interact(IStageElement from, InteractHint hint);
     }
 }
