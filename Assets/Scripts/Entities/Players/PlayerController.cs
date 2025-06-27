@@ -57,9 +57,13 @@ namespace RoomPuzzle
             moveDirection.x = moveValue.x.Sign();
             moveDirection.y = moveValue.y.Sign();
 
-            StageElement.Stage.Move(StageElement, moveDirection, new MoveHint()
+            StageElement.Stage.MoveAndInteract(StageElement, new InteractHint()
             {
-                duration = moveDuration,
+                moveHint = new MoveHint()
+                {
+                    duration = moveDuration,
+                    direction = moveDirection
+                }
             });
         }
     }

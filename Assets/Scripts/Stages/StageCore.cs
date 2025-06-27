@@ -19,8 +19,6 @@ namespace RoomPuzzle
 
         public Vector2Int startPosition;
 
-        public event ElementMovedHandler ElementMoved;
-
         [ShowInInspector]
         protected readonly Dictionary<Vector2Int, List<IStageElement>> elementsLookup = new();
 
@@ -70,14 +68,14 @@ namespace RoomPuzzle
             return false;
         }
 
-        public virtual bool CanMoveTo(IStageElement element, Vector2Int direction)
+        public virtual bool CanMoveTo(IStageElement element, MoveHint hint)
         {
-            var newPosition = element.Position + direction;
+            var newPosition = element.Position + hint.direction;
             if (elementsLookup.TryGetValue(newPosition, out var elementsAtNewPosition))
             {
                 foreach (var otherElement in elementsAtNewPosition)
                 {
-                    if (otherElement.CanEnter(element) == false)
+                    if (otherElement.CanEnter(element, hint) == false)
                     {
                         return false;
                     }
@@ -87,33 +85,49 @@ namespace RoomPuzzle
             return true;
         }
 
-        public virtual bool Move(IStageElement element, Vector2Int direction, MoveHint hint)
+        public virtual bool MoveAndInteract(IStageElement element, InteractHint hint)
         {
-            if (CanMoveTo(element, direction) == false)
+            var oldPosition = element.Position;
+            var newPosition = oldPosition + hint.moveHint.direction;
+
+            var elementsAtNewPosition = elementsLookup.GetValueOrAddNew(newPosition);
+
+            if (CanMoveTo(element, hint.moveHint) == false)
             {
+                foreach (var otherElement in elementsAtNewPosition)
+                {
+                    otherElement.Interact(element, hint);
+                }
+
                 return false;
             }
 
             var otherElements = new List<IStageElement>();
 
-            var oldPosition = element.Position;
-            var newPosition = oldPosition + direction;
+            foreach (var otherElement in elementsAtNewPosition)
+            {
+                if (otherElement.IsMoving())
+                {
+                    return false;
+                }
+            }
+
+            otherElements.AddRange(elementsAtNewPosition);
+            elementsAtNewPosition.Add(element);
+
             if (elementsLookup.TryGetValue(oldPosition, out var elementsAtOldPosition))
             {
                 elementsAtOldPosition.Remove(element);
             }
 
-            if (elementsLookup.TryGetValue(newPosition, out var elementsAtNewPosition))
-            {
-                otherElements.AddRange(elementsAtNewPosition);
-                elementsAtNewPosition.Add(element);
-            }
-
             element.Position = newPosition;
 
-            element.Move(otherElements, oldPosition, newPosition, hint);
+            element.Move(otherElements, oldPosition, newPosition, hint.moveHint);
 
-            ElementMoved?.Invoke(element, oldPosition, newPosition);
+            foreach (var otherElement in otherElements)
+            {
+                otherElement.Interact(element, hint);
+            }
 
             return true;
         }

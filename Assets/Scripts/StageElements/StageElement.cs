@@ -15,10 +15,12 @@ namespace RoomPuzzle
         public event IStageElement.EnterableCheckHandler OnCheckEnterable;
         public event IStageElement.MoveHandler OnMove;
         public event IStageElement.MovingCheckableHandler OnCheckMoving;
+        public event IStageElement.InteractableCheckHandler OnCheckInteractable;
+        public event IStageElement.InteractHandler OnInteract;
 
-        public bool CanEnter(IStageElement other)
+        public bool CanEnter(IStageElement other, MoveHint hint)
         {
-            bool canEnter = false;
+            bool canEnter = true;
             OnCheckEnterable?.Invoke(this, other, ref canEnter);
             return canEnter;
         }
@@ -33,6 +35,23 @@ namespace RoomPuzzle
             bool isMoving = false;
             OnCheckMoving?.Invoke(this, ref isMoving);
             return isMoving;
+        }
+
+        public bool CanInteract(IStageElement from, InteractHint hint)
+        {
+            bool canInteract = true;
+            OnCheckInteractable?.Invoke(this, from, hint, ref canInteract);
+            return canInteract;
+        }
+
+        public void Interact(IStageElement from, InteractHint hint)
+        {
+            if (CanInteract(from, hint) == false)
+            {
+                return;
+            }
+
+            OnInteract?.Invoke(this, from, hint);
         }
     }
 }
