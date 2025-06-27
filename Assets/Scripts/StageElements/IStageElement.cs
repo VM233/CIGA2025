@@ -14,20 +14,25 @@ namespace RoomPuzzle
         public delegate void EnterableCheckHandler(IStageElement element, IStageElement other, MoveHint hint,
             ref bool canEnter);
 
-        public delegate void InteractHandler(IStageElement element, IStageElement other, InteractHint hint);
+        public delegate void InteractHandler(IStageElement element, IStageElement from, InteractHint hint);
 
-        public delegate void InteractableCheckHandler(IStageElement element, IStageElement other, InteractHint hint,
+        public delegate void InteractableCheckHandler(IStageElement element, IStageElement from, InteractHint hint,
             ref bool canInteract);
 
-        public StageCore Stage { get; set; }
+        public delegate void StageChangedHandler(IStageElement element, bool isAdd);
+
+        public StageCore Stage { get; }
 
         public Vector2Int Position { get; set; }
 
+        public event StageChangedHandler OnStageChanged;
         public event EnterableCheckHandler OnCheckEnterable;
         public event MovingCheckableHandler OnCheckMoving;
         public event MoveHandler OnMove;
         public event InteractableCheckHandler OnCheckInteractable;
         public event InteractHandler OnInteract;
+        
+        public void SetStage(StageCore stage);
 
         public bool CanEnter(IStageElement other, MoveHint hint);
 

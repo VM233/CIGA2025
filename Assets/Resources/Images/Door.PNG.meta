@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8eb816c6f80cb1b499dd03deac54465f
+guid: 2340a99ec9f7b134b9c390926b71ad84
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4324574054862501059
-    second: IMG_1485_0
+      213: -8442755936475116147
+    second: IMG_1495_0
+  - first:
+      213: -8515093744192792496
+    second: IMG_1495_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,45 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ceramic Floor
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d3bcc074fc60cf3c0800000000000000
-      internalID: -4324574054862501059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wood Floor
+      name: Door_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4243d12f19a53b8428db0dbb09d04da7
-      internalID: 1577075127
+      spriteID: 2ff9c577544af2a41bc57d4d42e24ea5
+      internalID: -611919250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe2704e5ef6e6946a90a3f5b0e33b5d
+      internalID: 1074157916
       vertices: []
       indices: 
       edges: []
@@ -147,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: de050196751f2d147906c623862742c6
+    spriteID: a1face85b69b8574da35c4a89ddb516b
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ceramic Floor: -4324574054862501059
-      Wood Floor: 1577075127
+      Door_0: -611919250
+      Door_1: 1074157916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

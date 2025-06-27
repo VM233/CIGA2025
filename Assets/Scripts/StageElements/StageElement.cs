@@ -7,16 +7,31 @@ namespace RoomPuzzle
     public class StageElement : MonoBehaviour, IStageElement
     {
         [ShowInInspector]
-        public StageCore Stage { get; set; }
+        public StageCore Stage { get; protected set; }
 
         [ShowInInspector]
         public Vector2Int Position { get; set; }
 
+        public event IStageElement.StageChangedHandler OnStageChanged;
         public event IStageElement.EnterableCheckHandler OnCheckEnterable;
         public event IStageElement.MoveHandler OnMove;
         public event IStageElement.MovingCheckableHandler OnCheckMoving;
         public event IStageElement.InteractableCheckHandler OnCheckInteractable;
         public event IStageElement.InteractHandler OnInteract;
+
+        public void SetStage(StageCore stage)
+        {
+            if (stage == null)
+            {
+                Stage = null;
+                OnStageChanged?.Invoke(this, isAdd: false);
+            }
+            else
+            {
+                Stage = stage;
+                OnStageChanged?.Invoke(this, isAdd: true);
+            }
+        }
 
         public bool CanEnter(IStageElement other, MoveHint hint)
         {

@@ -5,7 +5,7 @@ using VMFramework.OdinExtensions;
 
 namespace RoomPuzzle
 {
-    public class StageManager : MonoBehaviour
+    public class StageManager : UniqueMonoBehaviour<StageManager>
     {
         [Required]
         public PlayerController player;

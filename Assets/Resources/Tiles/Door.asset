@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Door Open
+  m_Name: Door
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 363577192, guid: 01c17bd8425a9914498a97d25611e932, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultSprite: {fileID: 7482667652216324306, guid: 7a2f5088e45b9934a852eeaf5ce02010, type: 3}
+  m_DefaultGameObject: {fileID: 1420037342414994054, guid: 6fbd61fc694682243991185cf87673c3, type: 3}
   m_DefaultColliderType: 0
   m_TilingRules: []

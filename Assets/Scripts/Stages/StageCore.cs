@@ -35,7 +35,7 @@ namespace RoomPuzzle
             }
 
             element.Position = position;
-            element.Stage = this;
+            element.SetStage(this);
             var elements = elementsLookup.GetValueOrAddNew(position);
             elements.Add(element);
 
@@ -53,7 +53,7 @@ namespace RoomPuzzle
             var elements = elementsLookup[position];
             elements.Remove(element);
 
-            element.Stage = null;
+            element.SetStage(null);
         }
 
         public virtual bool TryGetElements(Vector2Int position, out IReadOnlyList<IStageElement> elements)
@@ -80,7 +80,7 @@ namespace RoomPuzzle
                         shouldStop = true;
                         return false;
                     }
-                    
+
                     if (otherElement.CanEnter(element, hint) == false)
                     {
                         shouldStop = false;
@@ -106,7 +106,7 @@ namespace RoomPuzzle
             {
                 return false;
             }
-            
+
             if (canMoveTo == false)
             {
                 foreach (var otherElement in elementsAtNewPosition)

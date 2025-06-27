@@ -19,6 +19,13 @@ namespace RoomPuzzle
             element = GetComponent<IStageElement>();
             element.OnMove += OnMove;
             element.OnCheckMoving += OnCheckMoving;
+            element.OnStageChanged += OnStateChanged;
+        }
+
+        protected virtual void OnStateChanged(IStageElement stageElement, bool isAdd)
+        {
+            transform.DOKill();
+            isMoving = false;
         }
 
         protected virtual void OnCheckMoving(IStageElement stageElement, ref bool isMoving)
