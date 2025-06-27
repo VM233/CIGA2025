@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace RoomPuzzle
@@ -12,6 +13,14 @@ namespace RoomPuzzle
 
         [ShowInInspector, HideInEditorMode]
         public Item CurrentItem { get; protected set; } = null;
+
+        protected IStageElement stageElement;
+
+        protected virtual void Awake()
+        {
+            stageElement = GetComponent<IStageElement>();
+            stageElement.OnInteract += OnInteract;
+        }
 
         protected virtual void Start()
         {
@@ -33,6 +42,17 @@ namespace RoomPuzzle
             item.transform.SetParent(transform);
             
             CurrentItem = item;
+        }
+        
+        protected virtual void OnInteract(IStageElement element, IStageElement from, InteractHint hint)
+        {
+            if (from.TryGetComponent(out Inventory inventory) == false)
+            {
+                return;
+            }
+            
+            inventory.AddItem(CurrentItem);
+            Destroy(gameObject);
         }
     }
 }
