@@ -24,9 +24,34 @@ namespace RoomPuzzle
         public Vector2Int startPosition;
 
         public bool requireSwitch = true;
+        
+        [ShowInInspector]
+        public int ValidPushEndCount { get; protected set; }
+        
+        [ShowInInspector]
+        public int PushEndCount { get; set; }
+
+        public int pushEndNextStageIndex;
 
         [ShowInInspector]
         protected readonly Dictionary<Vector2Int, List<IStageElement>> elementsLookup = new();
+
+        public void ModifyValidPushEndCount(bool add)
+        {
+            if (add)
+            {
+                ValidPushEndCount++;
+
+                if (ValidPushEndCount >= PushEndCount)
+                {
+                    StageManager.Instance.LoadStage(pushEndNextStageIndex);
+                }
+            }
+            else
+            {
+                ValidPushEndCount--;
+            }
+        }
 
         public virtual Vector2 GetRealPosition(Vector2Int position)
         {

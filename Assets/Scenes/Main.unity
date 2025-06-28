@@ -642,6 +642,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ac86ac76064fcfabfb7fffc57e3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1066006269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1796488767522617462, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_TileObjectToInstantiateArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 1420037342414994054, guid: 84328ec30b1398f47ae43b188db24084, type: 3}
+    - target: {fileID: 1796488767522617462, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_TileObjectToInstantiateArray.Array.data[0].m_RefCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796488767522617462, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796488767522617462, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_Tiles.Array.data[1].second.m_TileObjectToInstantiateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163207586255942875, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_Name
+      value: Stage 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264113551524444168, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+--- !u!114 &1066006270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6291465662745833728, guid: 57d222f690c90594e807a9ab432a6129, type: 3}
+  m_PrefabInstance: {fileID: 1066006269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ac86ac76064fcfabfb7fffc57e3340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1108994419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1728,8 @@ MonoBehaviour:
   stages:
   - {fileID: 1056742619}
   - {fileID: 46315275}
-  initialStageIndex: 1
+  - {fileID: 1066006270}
+  initialStageIndex: 4
   switchUI: stage_switch_ui
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1655,3 +1740,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1056742618}
   - {fileID: 46315274}
+  - {fileID: 1066006269}

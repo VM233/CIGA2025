@@ -1,5 +1,8 @@
-﻿namespace RoomPuzzle
+﻿using System;
+
+namespace RoomPuzzle
 {
+    [Flags]
     public enum ElementInteractionMode
     {
         None = 0,
