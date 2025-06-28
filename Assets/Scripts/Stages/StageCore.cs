@@ -20,6 +20,8 @@ namespace RoomPuzzle
 
         public Vector2Int startPosition;
 
+        public bool requireSwitch = true;
+
         [ShowInInspector]
         protected readonly Dictionary<Vector2Int, List<IStageElement>> elementsLookup = new();
 

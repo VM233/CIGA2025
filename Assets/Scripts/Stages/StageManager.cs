@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using VMFramework.OdinExtensions;
 using VMFramework.Procedure;
+using VMFramework.UI;
 
 namespace RoomPuzzle
 {
@@ -15,6 +16,10 @@ namespace RoomPuzzle
         public List<StageCore> stages = new();
         
         public int initialStageIndex = 0;
+
+        [GamePrefabID(typeof(IUIPanelConfig))]
+        [IsNotNullOrEmpty]
+        public string switchUI;
         
         public StageCore CurrentStage { get; protected set; }
         
@@ -42,19 +47,27 @@ namespace RoomPuzzle
             }
         }
 
+        [Button]
         public void LoadStage(int stageIndex)
         {
             var oldStage = CurrentStage;
             
             var stage = stageLookup[stageIndex];
             CurrentStage = stage;
+            
+            bool hasOldStage = oldStage != null;
 
-            if (oldStage != null)
+            if (hasOldStage)
             {
                 oldStage.RemoveElement(player.StageElement);
             }
             
             stage.AddElement(stage.startPosition, player.StageElement);
+
+            if (hasOldStage && stage.requireSwitch)
+            {
+                UIPanelManager.GetAndOpenUniquePanel(switchUI);
+            }
         }
     }
 }

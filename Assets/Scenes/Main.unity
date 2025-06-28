@@ -1861,6 +1861,7 @@ MonoBehaviour:
   - {fileID: 1056742619}
   - {fileID: 46315275}
   initialStageIndex: 1
+  switchUI: stage_switch_ui
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
