@@ -38,7 +38,7 @@ namespace RoomPuzzle
 
         protected virtual void OnInteract(IStageElement element, IStageElement other, InteractHint hint)
         {
-            stageElement.Stage.MoveAndInteract(stageElement, hint);
+            stageElement.Stage.MoveAndInteract(stageElement, hint, out var shouldStop);
         }
     }
 }

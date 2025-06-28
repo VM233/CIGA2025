@@ -71,6 +71,12 @@ namespace RoomPuzzle
 
         public virtual bool CanMoveTo(IStageElement element, MoveHint hint, out bool shouldStop)
         {
+            if (element.IsMoving())
+            {
+                shouldStop = true;
+                return false;
+            }
+            
             var newPosition = element.Position + hint.direction;
             if (elementsLookup.TryGetValue(newPosition, out var elementsAtNewPosition))
             {
@@ -94,14 +100,14 @@ namespace RoomPuzzle
             return true;
         }
 
-        public virtual bool MoveAndInteract(IStageElement element, InteractHint hint)
+        public virtual bool MoveAndInteract(IStageElement element, InteractHint hint, out bool shouldStop)
         {
             var oldPosition = element.Position;
             var newPosition = oldPosition + hint.moveHint.direction;
 
             var elementsAtNewPosition = elementsLookup.GetValueOrAddNew(newPosition);
 
-            var canMoveTo = CanMoveTo(element, hint.moveHint, out var shouldStop);
+            var canMoveTo = CanMoveTo(element, hint.moveHint, out shouldStop);
 
             if (shouldStop)
             {
@@ -141,7 +147,7 @@ namespace RoomPuzzle
 
             element.Position = newPosition;
 
-            element.Move(otherElements, oldPosition, newPosition, hint.moveHint);
+            element.Move(otherElements, previous: oldPosition, current: newPosition, hint.moveHint);
 
             foreach (var otherElement in otherElements)
             {

@@ -49,7 +49,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static FourTypesDirection ToFourTypesDirection2D(this Vector2 vector)
+        public static FourTypesDirection ToFourTypesDirection(this Vector2 vector)
         {
             if (vector.y > vector.x)
             {
