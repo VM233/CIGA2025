@@ -13,6 +13,9 @@ namespace RoomPuzzle
         public delegate void ElementMovedHandler(IStageElement element, Vector2Int previous, Vector2Int current);
 
         [Required]
+        public PlayerController player;
+        
+        [Required]
         public Tilemap tilemap;
 
         [MinValue(0)]

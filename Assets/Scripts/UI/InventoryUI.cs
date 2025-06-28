@@ -28,7 +28,7 @@ namespace RoomPuzzle
             Container = this.RootVisualElement().QueryStrictly(containerName, nameof(containerName));
             Container.Clear();
 
-            if (StageManager.Instance.player.TryGetComponent(out inventory))
+            if (StageManager.Instance.CurrentPlayer.TryGetComponent(out inventory))
             {
                 inventory.OnInventoryChanged += OnInventoryChanged;
             }
