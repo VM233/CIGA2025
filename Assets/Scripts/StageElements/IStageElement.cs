@@ -17,10 +17,12 @@ namespace RoomPuzzle
         public delegate void InteractHandler(IStageElement element, IStageElement from, InteractHint hint);
 
         public delegate void InteractableCheckHandler(IStageElement element, IStageElement from, InteractHint hint,
-            ref bool canInteract);
+            ref bool canInteract, ref bool valid);
 
         public delegate void StageChangedHandler(IStageElement element, bool isAdd);
 
+        public bool AutoInteract { get; }
+        
         public StageCore Stage { get; }
 
         public Vector2Int Position { get; set; }
@@ -40,8 +42,8 @@ namespace RoomPuzzle
 
         public void Move(IReadOnlyList<IStageElement> others, Vector2Int previous, Vector2Int current, MoveHint hint);
 
-        public bool CanInteract(IStageElement from, InteractHint hint);
+        public bool CanInteract(IStageElement from, InteractHint hint, out bool validInteract);
 
-        public void Interact(IStageElement from, InteractHint hint);
+        public bool Interact(IStageElement from, InteractHint hint, out bool valid);
     }
 }

@@ -30,7 +30,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T Choose<T>(this Random random, IList<T> list)
+        public static T Choose<T>(this Random random, IReadOnlyList<T> list)
         {
             if (list == null)
             {
@@ -80,7 +80,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T WeightedChoose<T>(this Random random, IList<T> objects, IList<int> rates)
+        public static T WeightedChoose<T>(this Random random, IReadOnlyList<T> objects, IReadOnlyList<int> rates)
         {
             if (objects.IsNullOrEmpty())
             {
@@ -117,7 +117,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T WeightedChoose<T>(this Random random, IList<T> objects, IList<float> rates)
+        public static T WeightedChoose<T>(this Random random, IReadOnlyList<T> objects, IReadOnlyList<float> rates)
         {
             if (objects.IsNullOrEmpty())
             {
@@ -154,7 +154,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static TItem WeightedChoose<TItem>(this Random random, IList<(TItem item, float rate)> infos)
+        public static TItem WeightedChoose<TItem>(this Random random, IReadOnlyList<(TItem item, float rate)> infos)
         {
             if (infos.IsNullOrEmpty())
             {
@@ -194,7 +194,8 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void WeightedChoose<TItem, TInfo>(this Random random, IList<TInfo> infos, out TItem result, out TInfo resultInfo)
+        public static void WeightedChoose<TItem, TInfo>(this Random random, IReadOnlyList<TInfo> infos,
+            out TItem result, out TInfo resultInfo)
             where TInfo : IWeightedSelectItem<TItem>
         {
             if (infos.IsNullOrEmpty())
@@ -266,19 +267,20 @@ namespace VMFramework.Core
             GlobalRandom.Default.ChooseValue(dictionary);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T WeightedChoose<T>(this IList<T> objects, IList<int> rates) =>
+        public static T WeightedChoose<T>(this IReadOnlyList<T> objects, IReadOnlyList<int> rates) =>
             GlobalRandom.Default.WeightedChoose(objects, rates);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T WeightedChoose<T>(this IList<T> objects, IList<float> rates) =>
+        public static T WeightedChoose<T>(this IReadOnlyList<T> objects, IReadOnlyList<float> rates) =>
             GlobalRandom.Default.WeightedChoose(objects, rates);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static TItem WeightedChoose<TItem>(this IList<(TItem item, float rate)> infos) =>
+        public static TItem WeightedChoose<TItem>(this IReadOnlyList<(TItem item, float rate)> infos) =>
             GlobalRandom.Default.WeightedChoose(infos);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void WeightedChoose<TItem, TInfo>(this IList<TInfo> infos, out TItem result, out TInfo resultInfo)
+        public static void WeightedChoose<TItem, TInfo>(this IReadOnlyList<TInfo> infos, out TItem result,
+            out TInfo resultInfo)
             where TInfo : IWeightedSelectItem<TItem> =>
             GlobalRandom.Default.WeightedChoose(infos, out result, out resultInfo);
 

@@ -25,7 +25,7 @@ namespace RoomPuzzle
         }
 
         protected virtual void OnCheckInteractable(IStageElement element, IStageElement from, InteractHint hint,
-            ref bool canInteract)
+            ref bool canInteract, ref bool valid)
         {
             if (from.TryGetComponent(out Inventory inventory) == false)
             {

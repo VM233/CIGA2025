@@ -18,6 +18,12 @@ namespace VMFramework.Core
             return new RectangleInteger(Vector2Int.zero, size - Vector2Int.one);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static RectangleInteger Expand(this RectangleInteger rect, int amount)
+        {
+            return new RectangleInteger(rect.min - Vector2Int.one * amount, rect.max + Vector2Int.one * amount);
+        }
+
         #region Inner
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

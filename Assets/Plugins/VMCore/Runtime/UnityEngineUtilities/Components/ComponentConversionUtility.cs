@@ -7,6 +7,26 @@ namespace VMFramework.Core
     public static class ComponentConversionUtility
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetComponentOrAs<T>(this object obj, out T component)
+        {
+            var isGameObject = obj.TryAsGameObject(out var targetObject);
+
+            if (isGameObject)
+            {
+                return targetObject.TryGetComponent(out component);
+            }
+
+            if (obj is T targetComponent)
+            {
+                component = targetComponent;
+                return true;
+            }
+            
+            component = default;
+            return false;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryAsGameObject(this object obj, out GameObject gameObject)
         {
             if (obj is Component targetComponent)
@@ -21,7 +41,7 @@ namespace VMFramework.Core
                 return true;
             }
 
-            gameObject = default;
+            gameObject = null;
             return false;
         }
 

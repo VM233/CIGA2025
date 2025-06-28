@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fa0f34098420d9c8c262e1b0669c6, type: 3}
+  m_Name: BuiltInModulesSettingFile
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  gamePropertyGeneralSetting: {fileID: 11400000, guid: 2677c6d1c6d7f954daa26c4619140e43, type: 2}
+  tooltipPropertyGeneralSetting: {fileID: 11400000, guid: a1fb0ef48e3cf6e4ca9a8e02a62ee5da, type: 2}
+  cameraGeneralSetting: {fileID: 11400000, guid: 0892f550c7df7244fb528e01206aa03a, type: 2}
+  containerGeneralSetting: {fileID: 11400000, guid: 86178a04804e611429e355cc18b51ebc, type: 2}
+  gridMapGeneralSetting: {fileID: 11400000, guid: a011e7b61f4e01d4f9036a1de90c829f, type: 2}
+  tileBaseConfigGeneralSetting: {fileID: 11400000, guid: 922c115b113c86944bab91c3ca9ee850, type: 2}

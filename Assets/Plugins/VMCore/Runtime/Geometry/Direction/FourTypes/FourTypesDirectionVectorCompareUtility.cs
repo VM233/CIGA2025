@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace VMFramework.Core
@@ -18,12 +19,43 @@ namespace VMFramework.Core
             {
                 direction |= FourTypesDirection.Left;
             }
-            
+
             if (vector.y > origin.y)
             {
                 direction |= FourTypesDirection.Up;
             }
             else if (vector.y < origin.y)
+            {
+                direction |= FourTypesDirection.Down;
+            }
+
+            return direction;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static FourTypesDirection GetRelativeDirectionTo(this Vector2Int vector, RectangleInteger rectangle)
+        {
+            if (rectangle.GetInnerRectangle().Contains(vector))
+            {
+                throw new ArgumentException("The vector is inside the rectangle.");
+            }
+
+            FourTypesDirection direction = FourTypesDirection.None;
+
+            if (vector.x >= rectangle.max.x)
+            {
+                direction |= FourTypesDirection.Right;
+            }
+            else if (vector.x <= rectangle.min.x)
+            {
+                direction |= FourTypesDirection.Left;
+            }
+
+            if (vector.y >= rectangle.max.y)
+            {
+                direction |= FourTypesDirection.Up;
+            }
+            else if (vector.y <= rectangle.min.y)
             {
                 direction |= FourTypesDirection.Down;
             }

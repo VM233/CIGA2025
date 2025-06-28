@@ -1,0 +1,16 @@
+.icon-label {
+    flex-direction: row;
+    align-content: center;
+    -unity-text-align: middle-left;
+}
+
+.icon-label-icon {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+}
+
+.property-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+}

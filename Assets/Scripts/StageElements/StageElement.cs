@@ -6,6 +6,8 @@ namespace RoomPuzzle
 {
     public class StageElement : MonoBehaviour, IStageElement
     {
+        public bool autoInteract = false;
+
         [ShowInInspector]
         public StageCore Stage { get; protected set; }
 
@@ -52,21 +54,26 @@ namespace RoomPuzzle
             return isMoving;
         }
 
-        public bool CanInteract(IStageElement from, InteractHint hint)
+        public bool CanInteract(IStageElement from, InteractHint hint, out bool validInteract)
         {
             bool canInteract = true;
-            OnCheckInteractable?.Invoke(this, from, hint, ref canInteract);
+            validInteract = false;
+            OnCheckInteractable?.Invoke(this, from, hint, ref canInteract, ref validInteract);
             return canInteract;
         }
 
-        public void Interact(IStageElement from, InteractHint hint)
+        public bool Interact(IStageElement from, InteractHint hint, out bool valid)
         {
-            if (CanInteract(from, hint) == false)
+            if (CanInteract(from, hint, out valid) == false)
             {
-                return;
+                return false;
             }
 
             OnInteract?.Invoke(this, from, hint);
+            
+            return true;
         }
+        
+        bool IStageElement.AutoInteract => autoInteract;
     }
 }

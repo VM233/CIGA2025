@@ -9,11 +9,11 @@ namespace VMFramework.Core
     public static class WorldsUtility
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static IEnumerable<string> GetWords(this string input)
+        public static IReadOnlyList<string> GetWords(this string input)
         {
             if (input.IsNullOrWhiteSpace())
             {
-                return Enumerable.Empty<string>();
+                return Array.Empty<string>();
             }
 
             var words = new List<string>();
@@ -165,7 +165,7 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static IEnumerable<string> MakeWordsSuffix(this string input, string suffix)
+        public static IReadOnlyList<string> MakeWordsSuffix(this string input, string suffix)
         {
             var inputWords = input.GetWords().ToList();
             var suffixWords = suffix.GetWords().ToArray();
@@ -182,6 +182,35 @@ namespace VMFramework.Core
             }
 
             return inputWords;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IReadOnlyList<string> GetSameWords(this IReadOnlyList<string> inputs)
+        {
+            if (inputs == null || inputs.Count == 0)
+            {
+                return Array.Empty<string>();
+            }
+            
+            var sameWords = new List<string>();
+            var firstInput = inputs[0];
+            
+            sameWords.AddRange(firstInput.GetWords());
+            
+            for (int i = 1; i < inputs.Count; i++)
+            {
+                var input = inputs[i];
+                var words = input.GetWords();
+
+                sameWords.RemoveAll(word => words.Contains(word, StringComparer.OrdinalIgnoreCase) == false);
+
+                if (sameWords.Count == 0)
+                {
+                    break;
+                }
+            }
+            
+            return sameWords;
         }
     }
 }

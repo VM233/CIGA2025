@@ -24,11 +24,15 @@ namespace RoomPuzzle
         }
 
         protected virtual void OnCheckInteractable(IStageElement element, IStageElement other, InteractHint hint,
-            ref bool canInteract)
+            ref bool canInteract, ref bool valid)
         {
             if (stageElement.Stage.CanMoveTo(stageElement, hint.moveHint, out var shouldStop) == false)
             {
                 canInteract = false;
+            }
+            else
+            {
+                valid = true;
             }
         }
 

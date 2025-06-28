@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace VMFramework.UI
+{
+    public interface IContextMenuProvider
+    {
+        public struct ContextMenuEntryConfig
+        {
+            public string title;
+            public Action action;
+            public Sprite icon;
+        }
+
+        public bool DisplayContextMenu() => true;
+
+        public IEnumerable<ContextMenuEntryConfig> GetContextMenuContent();
+    }
+}

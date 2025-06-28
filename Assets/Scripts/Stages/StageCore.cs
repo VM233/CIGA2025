@@ -111,7 +111,10 @@ namespace RoomPuzzle
             {
                 foreach (var otherElement in elementsAtNewPosition)
                 {
-                    otherElement.Interact(element, hint);
+                    if (otherElement.AutoInteract)
+                    {
+                        otherElement.Interact(element, hint, out _);
+                    }
                 }
 
                 return false;
@@ -141,7 +144,7 @@ namespace RoomPuzzle
 
             foreach (var otherElement in otherElements)
             {
-                otherElement.Interact(element, hint);
+                otherElement.Interact(element, hint, out _);
             }
 
             return true;

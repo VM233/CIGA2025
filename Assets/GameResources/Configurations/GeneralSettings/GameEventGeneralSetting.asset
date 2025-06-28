@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebbfd3004cc454b880ddfefa4a58668, type: 3}
+  m_Name: GameEventGeneralSetting
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 809322f2d76c3554ab51927d478e5bf1, type: 2}
+    - {fileID: 11400000, guid: 6a3ce17e9ad79a44ba3ea9cfd5e5ee6b, type: 2}
+    - {fileID: 11400000, guid: bacd98958e1c4f2408c918571b8c6536, type: 2}
+    - {fileID: 11400000, guid: ae8361fae60370c4da2994c08a037991, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: initialGamePrefabProviders
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[VMFramework.GameLogicArchitecture.IGamePrefabsProvider,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dependencyNodes
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[VMFramework.GameEvents.GameEventDependencyNode,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  dataFolderRelativePath: Configurations
+  defaultJSONFileSuffix: txt
+  defaultLocalizationTableName: 

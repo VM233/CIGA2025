@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b04ad8428da49eda2cb3b59fd34d193, type: 3}
+  m_Name: UISettingFile
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  uiPanelGeneralSetting: {fileID: 11400000, guid: 318383160d4dd82409feaf75dda3baf3, type: 2}
+  uiPanelProcedureGeneralSetting: {fileID: 11400000, guid: c76ab5dc6998b1d49a11d3253ded6998, type: 2}
+  debugPanelGeneralSetting: {fileID: 11400000, guid: 2b6e406d5959bf2418d8783a5d8bcd16, type: 2}
+  tooltipGeneralSetting: {fileID: 11400000, guid: 74fb5c8b49287cf43a2b182c0bc74763, type: 2}
+  contextMenuGeneralSetting: {fileID: 11400000, guid: ac80735bef8a9004484a41bf78e31584, type: 2}
+  slotGlobalFiltersGeneralSetting: {fileID: 11400000, guid: 7d53cdacadd0aca4a9f1fa2113d90c42, type: 2}

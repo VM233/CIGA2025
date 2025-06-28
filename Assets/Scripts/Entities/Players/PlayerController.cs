@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,14 +13,13 @@ namespace RoomPuzzle
         public string moveInputName;
 
         [MinValue(0)]
-        public float defaultMoveVelocity = 10f;
-
-        [MinValue(0)]
         public float moveDuration = 0.4f;
-
-        public float MoveVelocity { get; set; }
+        
+        public FourTypesDirection FacingDirection { get; protected set; }
 
         public IStageElement StageElement { get; protected set; }
+        
+        public event Action<FourTypesDirection> OnFacingDirectionChanged;
 
         protected InputAction moveAction;
 
@@ -29,8 +29,6 @@ namespace RoomPuzzle
 
             moveAction = InputSystem.actions.FindAction(moveInputName);
             moveAction.performed += OnMove;
-
-            MoveVelocity = defaultMoveVelocity;
         }
 
         protected virtual void OnMove(InputAction.CallbackContext context)
@@ -65,6 +63,9 @@ namespace RoomPuzzle
                     direction = moveDirection
                 }
             });
+
+            FacingDirection = moveValue.ToFourTypesDirection2D();
+            OnFacingDirectionChanged?.Invoke(FacingDirection);
         }
     }
 }

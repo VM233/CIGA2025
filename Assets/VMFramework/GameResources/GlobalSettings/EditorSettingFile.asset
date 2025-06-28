@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015b3540c6444c4d9bbddc510aa03b76, type: 3}
+  m_Name: EditorSettingFile
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  hierarchyGeneralSetting: {fileID: 11400000, guid: c92964468ca995846b8f5401d374694d, type: 2}
+  textureImporterGeneralSetting: {fileID: 11400000, guid: 94124655a34799e429f5b93c8dec1f6d, type: 2}
+  gamePrefabWrapperEditorGeneralSetting: {fileID: 11400000, guid: e7ad207689472374e92e419d76baa942, type: 2}
+  generalSettingsAssetFolderPath: Assets/GameResources/Configurations/GeneralSettings
+  gamePrefabsAssetFolderPath: Assets/GameResources/Configurations/GamePrefabs
