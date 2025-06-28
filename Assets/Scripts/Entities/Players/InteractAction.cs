@@ -41,25 +41,28 @@ namespace RoomPuzzle
                 {
                     foreach (var element in elements)
                     {
-                        if (element.Interact(stageElement, new InteractHint()
-                            {
-                                moveHint = new MoveHint()
-                                {
-                                    direction = facingDirection.ToCardinalVector(),
-                                    duration = playerController.moveDuration
-                                }
-                            }, out var valid))
+                        if (element.InteractionMode.HasAnyFlags(ElementInteractionMode.Keyed))
                         {
-                            if (valid)
+                            if (element.Interact(stageElement, new InteractHint()
+                                {
+                                    moveHint = new MoveHint()
+                                    {
+                                        direction = facingDirection.ToCardinalVector(),
+                                        duration = playerController.moveDuration
+                                    }
+                                }, out var valid))
                             {
-                                return;
+                                if (valid)
+                                {
+                                    return;
+                                }
                             }
                         }
                     }
                 }
             }
 
-            var otherDirections = facingDirection.Reversed();
+            var otherDirections = ~facingDirection;
 
             foreach (var otherDirection in otherDirections.GetFlags())
             {
@@ -69,18 +72,21 @@ namespace RoomPuzzle
                 {
                     foreach (var element in elements)
                     {
-                        if (element.Interact(stageElement, new InteractHint()
-                            {
-                                moveHint = new MoveHint()
-                                {
-                                    direction = otherDirection.ToCardinalVector(),
-                                    duration = playerController.moveDuration
-                                }
-                            }, out var valid))
+                        if (element.InteractionMode.HasAnyFlags(ElementInteractionMode.Keyed))
                         {
-                            if (valid)
+                            if (element.Interact(stageElement, new InteractHint()
+                                {
+                                    moveHint = new MoveHint()
+                                    {
+                                        direction = otherDirection.ToCardinalVector(),
+                                        duration = playerController.moveDuration
+                                    }
+                                }, out var valid))
                             {
-                                return;
+                                if (valid)
+                                {
+                                    return;
+                                }
                             }
                         }
                     }

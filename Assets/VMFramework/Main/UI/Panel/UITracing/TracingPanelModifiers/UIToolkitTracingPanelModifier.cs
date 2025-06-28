@@ -11,7 +11,7 @@ namespace VMFramework.UI
         protected IUIToolkitPanel UIToolkitPanel => (IUIToolkitPanel)Panel;
 
         protected VisualElement TracingContainer { get; private set; }
-        
+
         [LabelWidth(200), BoxGroup(CONFIGS_CATEGORY)]
         public bool useRightPosition;
 
@@ -46,11 +46,11 @@ namespace VMFramework.UI
         protected override void OnPostClose(IUIPanel panel)
         {
             base.OnPostClose(panel);
-            
+
             TracingContainer = null;
             setVisibleRequired = false;
         }
-        
+
         public override bool TryUpdatePosition(Vector2 screenPosition)
         {
             var rootVisualElement = UIToolkitPanel.RootVisualElement;
@@ -60,7 +60,7 @@ namespace VMFramework.UI
             {
                 return false;
             }
-            
+
             var width = TracingContainer.resolvedStyle.width;
             var height = TracingContainer.resolvedStyle.height;
 
@@ -73,7 +73,7 @@ namespace VMFramework.UI
             if (enableScreenOverflow == false)
             {
                 position = position.Clamp(boundsSize);
-                
+
                 if (position.x < defaultPivot.x * width)
                 {
                     pivot.x = (position.x / width).ClampMin(0);

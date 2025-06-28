@@ -60,6 +60,32 @@ namespace VMFramework.Core
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static FourTypesDirection ToFourTypesDirection(this Vector2Int vector)
+        {
+            FourTypesDirection result = FourTypesDirection.None;
+
+            if (vector.x > 0)
+            {
+                result |= FourTypesDirection.Right;
+            }
+            else if (vector.x < 0)
+            {
+                result |= FourTypesDirection.Left;
+            }
+            
+            if (vector.y > 0)
+            {
+                result |= FourTypesDirection.Up;
+            }
+            else if (vector.y < 0)
+            {
+                result |= FourTypesDirection.Down;
+            }
+
+            return result;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2Int ToCardinalVector(this FourTypesDirection direction)
         {
             return direction switch

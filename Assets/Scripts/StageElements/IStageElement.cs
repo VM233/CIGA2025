@@ -21,7 +21,7 @@ namespace RoomPuzzle
 
         public delegate void StageChangedHandler(IStageElement element, bool isAdd);
 
-        public bool AutoInteract { get; }
+        public ElementInteractionMode InteractionMode { get; }
         
         public StageCore Stage { get; }
 

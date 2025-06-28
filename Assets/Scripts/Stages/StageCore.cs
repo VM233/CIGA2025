@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EnumsNET;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -111,7 +112,7 @@ namespace RoomPuzzle
             {
                 foreach (var otherElement in elementsAtNewPosition)
                 {
-                    if (otherElement.AutoInteract)
+                    if (otherElement.InteractionMode.HasAnyFlags(ElementInteractionMode.TryEnter))
                     {
                         otherElement.Interact(element, hint, out _);
                     }
@@ -144,7 +145,10 @@ namespace RoomPuzzle
 
             foreach (var otherElement in otherElements)
             {
-                otherElement.Interact(element, hint, out _);
+                if (otherElement.InteractionMode.HasAnyFlags(ElementInteractionMode.Overlap))
+                {
+                    otherElement.Interact(element, hint, out _);
+                }
             }
 
             return true;

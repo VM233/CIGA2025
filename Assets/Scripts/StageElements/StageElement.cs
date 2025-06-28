@@ -6,7 +6,8 @@ namespace RoomPuzzle
 {
     public class StageElement : MonoBehaviour, IStageElement
     {
-        public bool autoInteract = false;
+        [EnumToggleButtons]
+        public ElementInteractionMode interactionMode = ElementInteractionMode.All;
 
         [ShowInInspector]
         public StageCore Stage { get; protected set; }
@@ -73,7 +74,7 @@ namespace RoomPuzzle
             
             return true;
         }
-        
-        bool IStageElement.AutoInteract => autoInteract;
+
+        ElementInteractionMode IStageElement.InteractionMode => interactionMode;
     }
 }

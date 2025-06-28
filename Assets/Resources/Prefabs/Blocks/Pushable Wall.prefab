@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdf28ebe8c24d2ebfe32c8e10befb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoInteract: 1
+  interactionMode: 1
 --- !u!114 &2237010880161744806
 MonoBehaviour:
   m_ObjectHideFlags: 0
