@@ -24,12 +24,23 @@ namespace VMFramework.UI
         [IsNotNullOrEmpty]
         public string containerVisualElementName;
 
+        [BoxGroup(CONFIGS_CATEGORY)]
+        public bool hideContainerUntilFirstUpdate = true;
+
+        protected bool setVisibleRequired = false;
+
         protected override void OnOpen(IUIPanel panel)
         {
             TracingContainer = UIToolkitPanel.RootVisualElement.QueryStrictly(containerVisualElementName,
                 nameof(containerVisualElementName));
 
             base.OnOpen(panel);
+
+            if (hideContainerUntilFirstUpdate)
+            {
+                TracingContainer.visible = false;
+                setVisibleRequired = true;
+            }
         }
 
         protected override void OnPostClose(IUIPanel panel)
@@ -37,6 +48,7 @@ namespace VMFramework.UI
             base.OnPostClose(panel);
             
             TracingContainer = null;
+            setVisibleRequired = false;
         }
         
         public override bool TryUpdatePosition(Vector2 screenPosition)
@@ -83,6 +95,12 @@ namespace VMFramework.UI
 
             SetPivot(pivot);
             TracingContainer.SetPosition(position, useRightPosition, useTopPosition, boundsSize);
+
+            if (setVisibleRequired)
+            {
+                TracingContainer.visible = true;
+                setVisibleRequired = false;
+            }
 
             return true;
         }

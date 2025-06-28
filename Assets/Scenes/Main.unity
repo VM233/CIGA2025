@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 433748905}
   - component: {fileID: 433748909}
   - component: {fileID: 433748911}
+  - component: {fileID: 433748913}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -258,6 +259,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoInteract: 0
+--- !u!114 &433748913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433748902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d31eb52e1b4cbba766a446bcbfc751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputName: Interact
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +834,7 @@ GameObject:
   - component: {fileID: 1205748864}
   - component: {fileID: 1205748863}
   - component: {fileID: 1205748862}
+  - component: {fileID: 1205748872}
   m_Layer: 0
   m_Name: UICore
   m_TagString: Untagged
@@ -961,6 +976,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f742c927ef37ffd43a51e2d4e5c95604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1205748872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205748860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a90208b9b0e4b7cb9b1534625b06ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1328189844
@@ -1210,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32508226e5d349b419789af236fc188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 519420031}
 --- !u!1 &1605897534
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ namespace RoomPuzzle
         [MinValue(0)]
         public float moveDuration = 0.4f;
         
+        [ShowInInspector]
         public FourTypesDirection FacingDirection { get; protected set; }
 
         public IStageElement StageElement { get; protected set; }

@@ -1,15 +1,25 @@
-﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using VMFramework.OdinExtensions;
+using VMFramework.Procedure;
+using VMFramework.UI;
 
 namespace RoomPuzzle
 {
-    public class PopupManager : UniqueMonoBehaviour<PopupManager>
+    [ManagerCreationProvider(ManagerType.UICore)]
+    public class PopupManager : ManagerBehaviour<PopupManager>
     {
-        [Required]
-        public Popup popupPrefab;
+        [Button]
+        public IUIPanel PopupText([GamePrefabID(typeof(IUIPanelConfig))] string panelID, TracingConfig config,
+            SimpleText text)
+        {
+            var panel = TracingUIManager.Instance.OpenOn(panelID, config, out _);
 
-        protected readonly Stack<Popup> popupPool = new();
-
+            if (panel.TryGetComponent(out Popup popup))
+            {
+                popup.TextLabel.text = text.text;
+            }
+            
+            return panel;
+        }
     }
 }
