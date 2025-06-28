@@ -12,6 +12,9 @@ namespace RoomPuzzle
     {
         [IsNotNullOrEmpty]
         public string moveInputName;
+        
+        [IsNotNullOrEmpty]
+        public string continuousMoveInputName;
 
         [MinValue(0)]
         public float moveDuration = 0.4f;
@@ -24,7 +27,9 @@ namespace RoomPuzzle
         public event Action<FourTypesDirection> OnFacingDirectionChanged;
 
         protected InputAction moveAction;
-        protected readonly Queue<Vector2Int> moveCommandQueue = new();
+        protected InputAction continuousMoveAction;
+        
+        protected bool isContinuousMove;
 
         protected virtual void Awake()
         {
@@ -32,35 +37,10 @@ namespace RoomPuzzle
 
             moveAction = InputSystem.actions.FindAction(moveInputName);
             moveAction.performed += OnMove;
-        }
-
-        protected virtual void Update()
-        {
-            if (moveCommandQueue.Count <= 0)
-            {
-                return;
-            }
-
-            var direction = moveCommandQueue.Peek();
             
-            StageElement.Stage.MoveAndInteract(StageElement, new InteractHint()
-            {
-                moveHint = new MoveHint()
-                {
-                    duration = moveDuration,
-                    direction = direction
-                }
-            }, out var shouldStop);
-
-            if (shouldStop)
-            {
-                return;
-            }
-
-            FacingDirection = direction.ToFourTypesDirection();
-            OnFacingDirectionChanged?.Invoke(FacingDirection);
-            
-            moveCommandQueue.Dequeue();
+            continuousMoveAction = InputSystem.actions.FindAction(continuousMoveInputName);
+            continuousMoveAction.performed += OnContinuousMove;
+            continuousMoveAction.canceled += OnCancelContinuousMove;
         }
 
         protected virtual void OnMove(InputAction.CallbackContext context)
@@ -71,7 +51,32 @@ namespace RoomPuzzle
             }
 
             var moveValue = context.ReadValue<Vector2>();
+            TryMove(moveValue);
+        }
 
+        protected virtual void Update()
+        {
+            if (isContinuousMove == false)
+            {
+                return;
+            }
+            
+            var moveValue = continuousMoveAction.ReadValue<Vector2>();
+            TryMove(moveValue);
+        }
+        
+        protected virtual void OnContinuousMove(InputAction.CallbackContext context)
+        {
+            isContinuousMove = true;
+        }
+        
+        protected virtual void OnCancelContinuousMove(InputAction.CallbackContext context)
+        {
+            isContinuousMove = false;
+        }
+
+        protected virtual void TryMove(Vector2 moveValue)
+        {
             if (moveValue.x != 0 && moveValue.y != 0)
             {
                 return;
@@ -82,7 +87,22 @@ namespace RoomPuzzle
             moveDirection.x = moveValue.x.Sign();
             moveDirection.y = moveValue.y.Sign();
             
-            moveCommandQueue.Enqueue(moveDirection);
+            StageElement.Stage.MoveAndInteract(StageElement, new InteractHint()
+            {
+                moveHint = new MoveHint()
+                {
+                    duration = moveDuration,
+                    direction = moveDirection
+                }
+            }, out var shouldStop);
+
+            if (shouldStop)
+            {
+                return;
+            }
+
+            FacingDirection = moveDirection.ToFourTypesDirection();
+            OnFacingDirectionChanged?.Invoke(FacingDirection);
         }
     }
 }

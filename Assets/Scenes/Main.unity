@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInputName: Move
+  continuousMoveInputName: Continuous Move
   moveDuration: 0.4
 --- !u!114 &433748909
 MonoBehaviour:
@@ -1582,6 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a4d10c54a74f13892a34c214e19b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoStartGame: 1
 --- !u!1 &1950066026
 GameObject:
   m_ObjectHideFlags: 0
