@@ -14,6 +14,8 @@ namespace RoomPuzzle
 
         [ShowInInspector]
         public Vector2Int Position { get; set; }
+        
+        public Vector2Int InitialPosition { get; protected set; }
 
         public event IStageElement.StageChangedHandler OnStageChanged;
         public event IStageElement.EnterableCheckHandler OnCheckEnterable;
@@ -32,6 +34,7 @@ namespace RoomPuzzle
             else
             {
                 Stage = stage;
+                InitialPosition = Position;
                 OnStageChanged?.Invoke(this, isAdd: true);
             }
         }
@@ -73,6 +76,11 @@ namespace RoomPuzzle
             OnInteract?.Invoke(this, from, hint);
             
             return true;
+        }
+
+        public void ResetElement()
+        {
+            Stage.MoveTo(this, InitialPosition);
         }
 
         ElementInteractionMode IStageElement.InteractionMode => interactionMode;

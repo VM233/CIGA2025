@@ -24,9 +24,9 @@ namespace RoomPuzzle
         public Vector2Int startPosition;
 
         public bool requireSwitch = true;
-        
+
         [ShowInInspector]
-        public int ValidPushEndCount { get; protected set; }
+        public readonly HashSet<PushableElement> validPushableElements = new();
         
         [ShowInInspector]
         public int PushEndCount { get; set; }
@@ -36,20 +36,21 @@ namespace RoomPuzzle
         [ShowInInspector]
         protected readonly Dictionary<Vector2Int, List<IStageElement>> elementsLookup = new();
 
-        public void ModifyValidPushEndCount(bool add)
+        public void ModifyValidPush(PushableElement pushable, bool add)
         {
             if (add)
             {
-                ValidPushEndCount++;
-
-                if (ValidPushEndCount >= PushEndCount)
+                if (validPushableElements.Add(pushable))
                 {
-                    StageManager.Instance.LoadStage(pushEndNextStageIndex);
+                    if (validPushableElements.Count >= PushEndCount)
+                    {
+                        StageManager.Instance.LoadStage(pushEndNextStageIndex);
+                    }
                 }
             }
             else
             {
-                ValidPushEndCount--;
+                validPushableElements.Remove(pushable);
             }
         }
 
@@ -130,6 +131,24 @@ namespace RoomPuzzle
             return true;
         }
 
+        public virtual void MoveTo(IStageElement element, Vector2Int newPosition)
+        {
+            if (element.Position == newPosition)
+            {
+                return;
+            }
+            
+            var oldPosition = element.Position;
+            var elementsAtNewPosition = elementsLookup.GetValueOrAddNew(newPosition);
+            var elementsAtOldPosition = elementsLookup.GetValueOrAddNew(oldPosition);
+
+            elementsAtOldPosition.Remove(element);
+            elementsAtNewPosition.Add(element);
+
+            element.Position = newPosition;
+            element.transform.position = GetRealPosition(newPosition);
+        }
+
         public virtual bool MoveAndInteract(IStageElement element, InteractHint hint, out bool shouldStop)
         {
             var oldPosition = element.Position;
@@ -188,6 +207,21 @@ namespace RoomPuzzle
             }
 
             return true;
+        }
+
+        [Button]
+        public virtual void ResetStage()
+        {
+            var elements = new List<IStageElement>();
+            foreach (var elementList in elementsLookup.Values)
+            {
+                elements.AddRange(elementList);
+            }
+
+            foreach (var element in elements)
+            {
+                element.ResetElement();
+            }
         }
     }
 }

@@ -1,17 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RoomPuzzle
 {
     public class PushEnd : MonoBehaviour
     {
         protected IStageElement stageElement;
+        
+        protected PushableElement pushable;
 
         protected virtual void Awake()
         {
             stageElement = GetComponent<IStageElement>();
             stageElement.OnStageChanged += OnStateChanged;
-            stageElement.OnInteract += OnInteract;
         }
 
         protected virtual void OnStateChanged(IStageElement element, bool isAdd)
@@ -26,14 +26,32 @@ namespace RoomPuzzle
             }
         }
 
-        protected virtual void OnInteract(IStageElement element, IStageElement from, InteractHint hint)
+        protected virtual void Update()
         {
-            if (from.TryGetComponent(out PushableElement pushable) == false)
+            if (stageElement.Stage == null)
             {
                 return;
             }
-            
-            element.Stage.ModifyValidPushEndCount(true);
+
+            var position = stageElement.Position;
+
+            if (stageElement.Stage.TryGetElements(position, out var elements))
+            {
+                foreach (var element in elements)
+                {
+                    if (element.TryGetComponent(out PushableElement pushable))
+                    {
+                        stageElement.Stage.ModifyValidPush(pushable, true);
+                        this.pushable = pushable;
+                        return;
+                    }
+                }
+            }
+
+            if (pushable != null)
+            {
+                stageElement.Stage.ModifyValidPush(pushable, false);
+            }
         }
     }
 }

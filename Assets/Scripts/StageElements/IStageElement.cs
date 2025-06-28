@@ -45,5 +45,7 @@ namespace RoomPuzzle
         public bool CanInteract(IStageElement from, InteractHint hint, out bool validInteract);
 
         public bool Interact(IStageElement from, InteractHint hint, out bool valid);
+
+        public void ResetElement();
     }
 }
