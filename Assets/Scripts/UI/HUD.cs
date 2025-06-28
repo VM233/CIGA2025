@@ -5,13 +5,19 @@ using VMFramework.UI;
 
 namespace RoomPuzzle
 {
-    public class InventoryUI : PanelModifier
+    public class HUD : PanelModifier
     {
         [VisualElementName]
         [IsNotNullOrEmpty]
         public string containerName;
 
+        [VisualElementName(typeof(Button))]
+        [IsNotNullOrEmpty]
+        public string stageResetButtonName;
+
         protected VisualElement Container { get; set; }
+        
+        protected Button StageResetButton { get; set; }
 
         protected Inventory inventory;
 
@@ -31,6 +37,19 @@ namespace RoomPuzzle
             if (StageManager.Instance.CurrentPlayer.TryGetComponent(out inventory))
             {
                 inventory.OnInventoryChanged += OnInventoryChanged;
+            }
+
+            StageResetButton = this.RootVisualElement()
+                .QueryStrictly<Button>(stageResetButtonName, nameof(stageResetButtonName));
+            
+            StageResetButton.clicked += ResetStage;
+        }
+
+        protected virtual void ResetStage()
+        {
+            if (StageManager.Instance.CurrentStage != null)
+            {
+                StageManager.Instance.CurrentStage.ResetStage();
             }
         }
 

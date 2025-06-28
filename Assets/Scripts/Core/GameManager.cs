@@ -19,7 +19,10 @@ namespace RoomPuzzle
         {
             if (procedureID == MainMenuProcedure.ID)
             {
-                StartGame();
+                if (autoStartGame)
+                {
+                    StartGame();
+                }
             }
         }
 

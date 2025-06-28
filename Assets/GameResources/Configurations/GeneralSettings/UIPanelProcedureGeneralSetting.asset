@@ -31,13 +31,13 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 2|VMFramework.UI.UIPanelProcedureConfig, Assembly-CSharp
     - Name: procedureID
       Entry: 1
-      Data: client_running_procedure
+      Data: main_menu_procedure
     - Name: uniqueUIPanelAutoOpenOnEnter
       Entry: 7
       Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
@@ -46,7 +46,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 1
-      Data: inventory_ui
+      Data: main_menu_ui
     - Name: 
       Entry: 13
       Data: 
@@ -80,6 +80,69 @@ MonoBehaviour:
     - Name: uiPanelAutoCloseOnExit
       Entry: 7
       Data: 6|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|VMFramework.UI.UIPanelProcedureConfig, Assembly-CSharp
+    - Name: procedureID
+      Entry: 1
+      Data: client_running_procedure
+    - Name: uniqueUIPanelAutoOpenOnEnter
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: inventory_ui
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: uiPanelAutoCloseOnEnter
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: main_menu_ui
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: uniqueUIPanelAutoOpenOnExit
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: uiPanelAutoCloseOnExit
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2

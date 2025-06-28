@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI%20Documents/HUD.uss?fileID=7433441132597879392&amp;guid=4c4282f271a51c149825ea86af0d2a4f&amp;type=3#HUD" />
+    <engine:VisualElement style="flex-grow: 1;">
+        <engine:Button text="开始游戏" name="StartGameButton" style="width: 200px; height: 50px; position: absolute; top: 433px; left: 925px; font-size: 40px;" />
+    </engine:VisualElement>
+</engine:UXML>

@@ -19,8 +19,10 @@ namespace RoomPuzzle
         [IsNotNullOrEmpty]
         public string switchUI;
 
+        [ShowInInspector]
         public PlayerController CurrentPlayer { get; protected set; }
 
+        [ShowInInspector]
         public StageCore CurrentStage { get; protected set; }
 
         public event Action OnStageChanged;

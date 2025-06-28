@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7093936311640439053}
   - component: {fileID: 6809071751493704030}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,4 +77,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c577256bda846eb9840aaf86171cec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: UIMainPart
+  containerName: Inventory
+  stageResetButtonName: StageResetButton
