@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 9186958845703718459}
-  stageIndex: 1
+  stageIndex: 0
   startPosition: {x: 1, y: 1}
 --- !u!1 &8606356494995202818
 GameObject:
@@ -592,10 +592,6 @@ PrefabInstance:
     - target: {fileID: 1828054344833002433, guid: 6fbd61fc694682243991185cf87673c3, type: 3}
       propertyPath: m_SortingLayer
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767059789179410149, guid: 6fbd61fc694682243991185cf87673c3, type: 3}
-      propertyPath: stageIndex
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5086804174841601002, guid: 6fbd61fc694682243991185cf87673c3, type: 3}
       propertyPath: m_LocalPosition.x
