@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ namespace RoomPuzzle
 {
     public class Inventory : MonoBehaviour
     {
+        public event Action<Inventory> OnInventoryChanged;
+        
+        public IReadOnlyCollection<Item> Items => items.Values;
+        
         [ShowInInspector]
         protected readonly Dictionary<string, Item> items = new();
 
@@ -21,6 +26,8 @@ namespace RoomPuzzle
                 items.Add(item.itemID, item);
                 item.transform.SetParent(transform);
             }
+            
+            OnInventoryChanged?.Invoke(this);
         }
 
         public void RemoveItem(string itemID, int count)
@@ -34,6 +41,8 @@ namespace RoomPuzzle
                     items.Remove(itemID);
                     Destroy(item.gameObject);
                 }
+                
+                OnInventoryChanged?.Invoke(this);
             }
         }
 

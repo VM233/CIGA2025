@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78139273e9e448e197222669525fbb69, type: 3}
-  m_Name: PopupUi
+  m_Name: InventoryUi
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 3094753446345421175, guid: 488c9e7ce1701fd4fb67d35fef57c1ac, type: 3}
+    - {fileID: 3094753446345421175, guid: f45ec1fb7041dc944bf78983f34747ff, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,7 +27,7 @@ MonoBehaviour:
       Data: 0|VMFramework.UI.UIToolkitPanelConfig, Assembly-CSharp
     - Name: _id
       Entry: 1
-      Data: popup_ui
+      Data: inventory_ui
     - Name: isActive
       Entry: 5
       Data: true
@@ -60,10 +60,10 @@ MonoBehaviour:
       Data: 
     - Name: sortingOrder
       Entry: 3
-      Data: 50
+      Data: 0
     - Name: isUnique
       Entry: 5
-      Data: false
+      Data: true
     - Name: prefab
       Entry: 10
       Data: 0

@@ -2,10 +2,12 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VMFramework.OdinExtensions;
+using VMFramework.Procedure;
 
 namespace RoomPuzzle
 {
-    public class StageManager : UniqueMonoBehaviour<StageManager>
+    [ManagerCreationProvider("Stage")]
+    public class StageManager : ManagerBehaviour<StageManager>
     {
         [Required]
         public PlayerController player;
@@ -19,21 +21,26 @@ namespace RoomPuzzle
         
         protected readonly Dictionary<int, StageCore> stageLookup = new();
 
-        private void Start()
+        protected override void OnBeforeInitStart()
         {
-            StartGame();
-        }
-
-        public void StartGame()
-        {
-            stageLookup.Clear();
-
-            foreach (var stage in stages)
-            {
-                stageLookup.Add(stage.stageIndex, stage);
-            }
+            base.OnBeforeInitStart();
             
-            LoadStage(initialStageIndex);
+            ProcedureManager.Instance.OnEnterProcedureEvent += OnEnterProcedure;
+        }
+        
+        protected virtual void OnEnterProcedure(string procedureID)
+        {
+            if (procedureID == ClientRunningProcedure.ID)
+            {
+                stageLookup.Clear();
+
+                foreach (var stage in stages)
+                {
+                    stageLookup.Add(stage.stageIndex, stage);
+                }
+            
+                LoadStage(initialStageIndex);
+            }
         }
 
         public void LoadStage(int stageIndex)
