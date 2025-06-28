@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9316b66680f4a944a976d89a0ed0a3e0
+guid: b6885d6b8186cf348859d671d5314b2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2597418620247314827
-    second: IMG_1526_0
+      213: -3502363201115068577
+    second: IMG_1559_0
   - first:
-      213: -3765331888564869846
-    second: IMG_1526_1
+      213: 7991622553031925556
+    second: IMG_1559_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -77,7 +77,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -103,45 +103,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1526_0
+      name: Floor 2_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 17
-        width: 19
-        height: 12
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 57e6c2fc68d14fbd0800000000000000
-      internalID: -2597418620247314827
+      spriteID: 6eaf66b789c750847b985c793cd68e87
+      internalID: -416254922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_1526_1
+      name: Floor 2_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 6
-        width: 18
-        height: 11
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a25e3a0d89adebbc0800000000000000
-      internalID: -3765331888564869846
+      spriteID: fb3c7c8bb6b7b55499cbc88110f2583e
+      internalID: -577158164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor 2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b7ca32597ad4e47bd08706e8dddb61
+      internalID: 1942477991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor 2_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcbc66d0d520944d9bbea2bbf1a85d2
+      internalID: -2034196493
       vertices: []
       indices: 
       edges: []
@@ -150,7 +194,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c4fb7fc7c78f52e45a4c992614dee22f
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +203,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Floor 2_0: -416254922
+      Floor 2_1: -577158164
+      Floor 2_2: 1942477991
+      Floor 2_3: -2034196493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
