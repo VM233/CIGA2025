@@ -1,0 +1,101 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="RoomPuzzle.HUD" preserve="all" />
+    <type fullname="RoomPuzzle.MainMenuModifier" preserve="all" />
+    <type fullname="RoomPuzzle.Popup" preserve="all" />
+    <type fullname="RoomPuzzle.StageSwitchUI" preserve="all" />
+    <type fullname="VMFramework.Animations.AnimationsSettingFile" preserve="all" />
+    <type fullname="VMFramework.Animations.GameObjectAnimationGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Cameras.CameraGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Configuration.CommonPresetGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Configuration.GeneralConfigGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Configuration.IntCommonPreset" preserve="all" />
+    <type fullname="VMFramework.Containers.ContainerGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Editor.HierarchyGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Editor.TextureImporterGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Effects.EffectGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.GameEvents.ColliderMouseEventGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.GameEvents.GameEventGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.BuiltInModulesSettingFile" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.CoreSettingFile" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.Editor.EditorSettingFile" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.Editor.GamePrefabWrapperEditorGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.GamePrefabSingleWrapper" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.GameTagGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.GameLogicArchitecture.ResourcesManagementSettingFile" preserve="all" />
+    <type fullname="VMFramework.Maps.GridMapGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Maps.TileBaseConfigGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Properties.GamePropertyGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.Properties.TooltipPropertyGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.ResourcesManagement.SpriteGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.ContextMenuGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.DebugPanelGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.SlotGlobalFiltersGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.TooltipGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.UIPanelGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.UIPanelProcedureGeneralSetting" preserve="all" />
+    <type fullname="VMFramework.UI.UISettingFile" preserve="all" />
+    <type fullname="VMFramework.UI.UIToolkitPanel" preserve="all" />
+    <type fullname="VMFramework.UI.UIToolkitTracingPanelModifier" preserve="all" />
+    <type fullname="VMFramework.UI.SlotVisualElement/UxmlSerializedData" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Localization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Localization.Locale" preserve="all" />
+    <type fullname="UnityEngine.Localization.Tables.SharedTableData" preserve="all" />
+    <type fullname="UnityEngine.Localization.Tables.StringTable" preserve="all" />
+    <type fullname="UnityEngine.Localization.LocaleIdentifier" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Metadata.MetadataCollection" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.TableEntryData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.DistributedUIDGenerator" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.SharedTableData/SharedTableEntry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.UIElements.PanelSettings" preserve="all" />
+    <type fullname="UnityEngine.UIElements.StyleSheet" preserve="all" />
+    <type fullname="UnityEngine.UIElements.ThemeStyleSheet" preserve="all" />
+    <type fullname="UnityEngine.UIElements.UIDocument" preserve="all" />
+    <type fullname="UnityEngine.UIElements.VisualTreeAsset" preserve="all" />
+    <type fullname="UnityEngine.UIElements.Button/UxmlFactory" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.Button/UxmlSerializedData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.DynamicAtlasSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.Label/UxmlFactory" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.Label/UxmlSerializedData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleComplexSelector" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleRule" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleSelector" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleSelectorPart" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleSheet/ImportStruct" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleSheets.Dimension" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleSheets.ScalableImage" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.StyleValueHandle" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.UxmlNamespaceDefinition" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.UxmlRootElementFactory" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.VisualElement/UxmlFactory" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.VisualElement/UxmlSerializedData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UIElements.VisualElementAsset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Sirenix.Serialization">
+    <type fullname="Sirenix.Serialization.SerializationData" preserve="nothing" serialized="true" />
+  </assembly>
+</linker>
