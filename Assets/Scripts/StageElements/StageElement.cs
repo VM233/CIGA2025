@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace RoomPuzzle
         public event IStageElement.MovingCheckableHandler OnCheckMoving;
         public event IStageElement.InteractableCheckHandler OnCheckInteractable;
         public event IStageElement.InteractHandler OnInteract;
+        public event Action OnReset;
 
         public void SetStage(StageCore stage)
         {
@@ -81,6 +83,7 @@ namespace RoomPuzzle
         public void ResetElement()
         {
             Stage.MoveTo(this, InitialPosition);
+            OnReset?.Invoke();
         }
 
         ElementInteractionMode IStageElement.InteractionMode => interactionMode;

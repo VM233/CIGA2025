@@ -43,6 +43,13 @@ namespace RoomPuzzle
             continuousMoveAction.canceled += OnCancelContinuousMove;
         }
 
+        private void OnDestroy()
+        {
+            moveAction.performed -= OnMove;
+            continuousMoveAction.performed -= OnContinuousMove;
+            continuousMoveAction.canceled -= OnCancelContinuousMove;
+        }
+
         protected virtual void OnMove(InputAction.CallbackContext context)
         {
             if (StageElement.Stage == null)

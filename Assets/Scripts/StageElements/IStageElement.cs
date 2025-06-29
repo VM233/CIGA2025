@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VMFramework.Core;
 
@@ -33,6 +34,7 @@ namespace RoomPuzzle
         public event MoveHandler OnMove;
         public event InteractableCheckHandler OnCheckInteractable;
         public event InteractHandler OnInteract;
+        public event Action OnReset;
         
         public void SetStage(StageCore stage);
 

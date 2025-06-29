@@ -291,7 +291,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 404337501
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3, y: 1, z: 0}
   m_MaxChunkCount: 16
@@ -627,10 +627,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ac86ac76064fcfabfb7fffc57e3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   tilemap: {fileID: 9186958845703718459}
   stageIndex: 0
   startPosition: {x: 1, y: 1}
   requireSwitch: 1
+  pushEndNextStageIndex: 0
 --- !u!1 &8606356494995202818
 GameObject:
   m_ObjectHideFlags: 0
